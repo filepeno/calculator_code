@@ -1,6 +1,7 @@
 "use strict";
 
 let result = 1;
+let operator = document.querySelector("#operator");
 const list = document.querySelector("#results");
 const firstnumber = document.querySelector("#firstnumber");
 const secondnumber = document.querySelector("#secondnumber");
@@ -20,21 +21,28 @@ function readInput(e) {
   e.preventDefault();
   console.log(Number(firstnumber.value));
   console.log(Number(secondnumber.value));
-  calculate();
+  readOperator();
 }
 
-// function readOperator() {
-//   console.log("readOperator()");
-// }
-
-// function decideCalculation() {
-//   console.log("decideCalculation()");
-// }
+//read value of chosen operator
+function readOperator() {
+  console.log("readOperator()");
+  console.log(operator.value);
+  calculate();
+}
 
 //calculates first and second number together
 function calculate() {
   console.log("calculate()");
-  result = Number(firstnumber.value) + Number(secondnumber.value);
+  if (operator.value === "add") {
+    result = Number(firstnumber.value) + Number(secondnumber.value);
+  } else if (operator.value === "sub") {
+    result = Number(firstnumber.value) - Number(secondnumber.value);
+  } else if (operator.value === "mul") {
+    result = Number(firstnumber.value) * Number(secondnumber.value);
+  } else if (operator.value === "div") {
+    result = Number(firstnumber.value) / Number(secondnumber.value);
+  }
   console.log(result);
   printResult();
 }

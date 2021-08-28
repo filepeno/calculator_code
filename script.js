@@ -1,6 +1,8 @@
 "use strict";
 
 let result = 1;
+let check = false;
+let checkBox = document.querySelector("#doround");
 let operator = document.querySelector("#operator");
 const list = document.querySelector("#results");
 const firstnumber = document.querySelector("#firstnumber");
@@ -28,6 +30,7 @@ function readInput(e) {
 function readOperator() {
   console.log("readOperator()");
   console.log(operator.value);
+
   calculate();
 }
 
@@ -44,6 +47,20 @@ function calculate() {
     result = Number(firstnumber.value) / Number(secondnumber.value);
   }
   console.log(result);
+  console.log(checkBox.checked);
+  if (checkBox.checked) {
+    console.log("checkbox is checked");
+    getCheckbox();
+  } else {
+    console.log("checkbox is not checked");
+    printResult();
+  }
+}
+
+//check if checkbox is checked
+function getCheckbox() {
+  console.log("checkBox()");
+  result = Math.floor(result);
   printResult();
 }
 
@@ -57,6 +74,5 @@ function printResult() {
 //updates value in the first input field with the result
 function updateFirstnumber() {
   console.log("updateFirstnumber()");
-  firstnumber.value = result;
-  console.log(firstnumber.value);
+  firstnumber.value = Number(result);
 }

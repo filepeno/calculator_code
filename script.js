@@ -3,6 +3,7 @@
 let result = 1;
 let check = false;
 let checkBox = document.querySelector("#doround");
+let decimal = document.querySelector("#decimals");
 let operator = document.querySelector("#operator");
 const list = document.querySelector("#results");
 const firstnumber = document.querySelector("#firstnumber");
@@ -57,10 +58,20 @@ function calculate() {
   }
 }
 
-//check if checkbox is checked
+//check checkbox value
 function getCheckbox() {
-  console.log("checkBox()");
-  result = Math.floor(result);
+  console.log("getCheckBox()");
+  let decimalPlaces = Number(decimal.value);
+  //   if (decimalPlaces === 1) {
+  //     result = Math.round(result * 10) / 10;
+  //   }
+  console.log(decimalPlaces);
+  const rounded = (result, decimalPlaces) => {
+    const factorOfTen = Math.pow(10, decimalPlaces);
+    return Math.round(result * factorOfTen) / factorOfTen;
+  };
+  console.log(rounded(result, decimalPlaces));
+  result = rounded(result, decimalPlaces);
   printResult();
 }
 

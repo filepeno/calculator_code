@@ -58,7 +58,7 @@ function calculate() {
   }
 }
 
-//check checkbox value
+//check checkbox value and round result based on it
 function getCheckbox() {
   console.log("getCheckBox()");
   let decimalPlaces = Number(decimal.value);
@@ -78,12 +78,16 @@ function getCheckbox() {
 //print result at the end of the list
 function printResult() {
   console.log("printResult()");
-  list.lastElementChild.textContent = result;
+  const template = document.querySelector("template").content;
+  const copy = template.cloneNode(true);
+  copy.querySelector("li").textContent = result;
+  const parent = list;
+  parent.appendChild(copy);
   updateFirstnumber();
 }
 
 //updates value in the first input field with the result
 function updateFirstnumber() {
   console.log("updateFirstnumber()");
-  firstnumber.value = Number(result);
+  firstnumber.value = result;
 }

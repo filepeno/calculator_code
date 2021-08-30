@@ -9,6 +9,7 @@ const list = document.querySelector("#results");
 const firstnumber = document.querySelector("#firstnumber");
 const secondnumber = document.querySelector("#secondnumber");
 const calculateBtn = document.querySelector("#calculate");
+const clearBtn = document.querySelector("#clear");
 
 setup();
 
@@ -16,6 +17,7 @@ setup();
 function setup() {
   console.log("setup()");
   calculateBtn.addEventListener("click", readInput);
+  clearBtn.addEventListener("click", clearResults);
 }
 
 //read both input fields
@@ -81,8 +83,7 @@ function printResult() {
   const template = document.querySelector("template").content;
   const copy = template.cloneNode(true);
   copy.querySelector("li").textContent = result;
-  const parent = list;
-  parent.appendChild(copy);
+  list.appendChild(copy);
   updateFirstnumber();
 }
 
@@ -90,4 +91,9 @@ function printResult() {
 function updateFirstnumber() {
   console.log("updateFirstnumber()");
   firstnumber.value = result;
+}
+
+//clear result list
+function clearResults() {
+  console.log("clearResults()");
 }

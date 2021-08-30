@@ -1,16 +1,19 @@
 #interface {
   background-color: lightgray;
-  border-radius: .4em;
+  border-radius: 0.4em;
   width: 300px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   padding: 1em;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: .2em;
+  gap: 0.2em;
 }
 
 #results {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   list-style: none;
   padding: 0;
   text-align: right;
@@ -30,11 +33,12 @@
   text-decoration: underline;
 }
 
-input[type=text] {
+input[type="text"] {
   width: calc(100% - 1em);
   text-align: right;
 }
 
-select,button {
+select,
+button {
   height: 3em;
 }
